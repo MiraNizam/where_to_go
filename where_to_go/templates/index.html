@@ -52,7 +52,7 @@
           "properties": {
             "title": "«Легенды Москвы",
             "placeId": "moscow_legends",
-            "detailsUrl": "./places/moscow_legends.json"
+            "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/moscow_legends.json"
           }
         },
         {
@@ -64,7 +64,7 @@
           "properties": {
             "title": "Крыши24.рф",
             "placeId": "roofs24",
-            "detailsUrl": "./places/roofs24.json"
+            "detailsUrl": "https://raw.githubusercontent.com/devmanorg/where-to-go-frontend/master/places/roofs24.json"
           }
         }
       ]
@@ -87,11 +87,12 @@
       <div class="place-description" v-if="selectedPlace">
 
         <img v-if="mainPhotoSrc" v-bind:src="mainPhotoSrc" class="d-block shadow mb-3 rounded" v-bind:alt="selectedPlace.title">
-
+        {% verbatim %}
         <h5 class="mb-3">{{ selectedPlace.title }}</h5>
-
+        {% endverbatim %}
+        {% verbatim %}
         <p>{{ selectedPlace.short_description }}</p>
-
+        {% endverbatim %}
         <div id="place-photos" class="carousel slide mb-3 shadow" data-ride="carousel" data-interval="5000">
           <ol class="carousel-indicators">
             <template v-for="(img, index) in carouselImgs" :key="img">
