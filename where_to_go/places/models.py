@@ -12,3 +12,11 @@ class Place(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Image(models.Model):
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    image = models.ImageField()
+
+    def __str__(self):
+        return f"{str(self.id)} {self.place.title}"
