@@ -7,7 +7,14 @@ class Place(models.Model):
     description_long = models.TextField('Полное описание места', blank=True)
     longitude = models.FloatField('Долгота')
     latitude = models.FloatField('Широта')
-    # images = models.ImageField('Картинка')
 
     def __str__(self):
         return self.title
+
+
+class Image(models.Model):
+    title = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Место")
+    images = models.ImageField('Картинка')
+
+    def __str__(self):
+        return f"{self.id} {self.title}"
