@@ -13,8 +13,11 @@ class Place(models.Model):
 
 
 class Image(models.Model):
-    title = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Место", related_name="images")
-    images = models.ImageField('Картинка')
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, verbose_name="Место", related_name="images")
+    image = models.ImageField('Картинка')
 
     def __str__(self):
-        return f"{self.id} {self.title}"
+        return f"{self.id} {self.place}"
+
+
+    #
