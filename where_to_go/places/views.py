@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Place, Image
+from django.http import JsonResponse
+from django.urls import reverse
 
 
 def index(request):
@@ -10,8 +12,8 @@ def index(request):
 
         properties = {
             "title": place.title,
-            "placeId": place.pk,
-            "detailsUrl": place_details(request, place.pk)
+            "placeId": place.id,
+            "detailsUrl": reverse(place_details, kwargs={"place_id": place.id})
         }
         features = {
             "type": "Feature",
@@ -23,6 +25,7 @@ def index(request):
         }
         places_features.append(features)
     context = {"type": "FeatureCollection", "features": places_features}
+    print(context)
     return render(request, "index.html", context={"places": context})
 
 
@@ -37,6 +40,4 @@ def place_details(request, place_id):
                         "lat": place.latitude
                         }
     }
-    return render(request, "index.html", context=place_descriptions)
-
-
+    return JsonResponse(place_descriptions)
