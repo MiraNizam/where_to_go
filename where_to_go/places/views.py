@@ -40,4 +40,4 @@ def place_details(request, place_id):
                         "lat": place.latitude
                         }
     }
-    return JsonResponse(place_descriptions)
+    return JsonResponse(place_descriptions, json_dumps_params={'ensure_ascii': False, 'indent': 2})
