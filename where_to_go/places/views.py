@@ -25,7 +25,6 @@ def index(request):
         }
         places_features.append(features)
     context = {"type": "FeatureCollection", "features": places_features}
-    print(context)
     return render(request, "index.html", context={"places": context})
 
 
