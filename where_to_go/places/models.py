@@ -26,4 +26,3 @@ class Image(models.Model):
         return f"{self.position} {self.place}"
 
 
-    #
