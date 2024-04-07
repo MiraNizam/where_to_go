@@ -1,4 +1,4 @@
 Django==4.0.1
-django-tinymce==4.0.0
-python-dotenv==1.0.0
-
+django_admin_sortable2==2.1.10
+django_tinymce==4.0.0
+python-dotenv==1.0.1
