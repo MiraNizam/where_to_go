@@ -6,7 +6,7 @@
 
 ## Демо-версия сайта
 
-Ссылка для перехода на сайт: **[Where to go site]()**
+Ссылка для перехода на сайт: **[Where to go site](http://elmirazaych.pythonanywhere.com/)**
 
 ## Запуск
 
