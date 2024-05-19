@@ -1,10 +1,11 @@
-from django.core.files.base import ContentFile
-from django.core.management.base import BaseCommand
-import requests
-import json
-from places.models import Place, Image
 from json.decoder import JSONDecodeError
 from urllib.parse import urlparse
+
+import requests
+from django.core.files.base import ContentFile
+from django.core.management.base import BaseCommand
+
+from places.models import Image, Place
 
 
 class Command(BaseCommand):
@@ -14,7 +15,7 @@ class Command(BaseCommand):
         parser.add_argument(
             "json_link",
             type=str,
-            help="Provide a link to the JSON file with location information"
+            help="Provide a link to the JSON file with location information",
         )
 
     def handle(self, *args, **options):
@@ -36,7 +37,9 @@ class Command(BaseCommand):
                     response.raise_for_status()
                     image_name = urlparse(image_link).path.split("/")[-1]
                     image_content = ContentFile(response.content, name=image_name)
-                    Image.objects.create(place=place, image=image_content, position=image_number)
+                    Image.objects.create(
+                        place=place, image=image_content, position=image_number
+                    )
 
         except (FileNotFoundError, JSONDecodeError):
             raise ValueError(
