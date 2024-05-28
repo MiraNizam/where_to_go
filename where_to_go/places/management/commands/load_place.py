@@ -7,7 +7,6 @@ from django.core.management.base import BaseCommand
 
 from places.models import Image, Place
 
-
 class Command(BaseCommand):
     help = "Load files with places into the database"
 
@@ -46,3 +45,4 @@ class Command(BaseCommand):
                 "The file was not found or the file structure does not match what is stated in the README, "
                 "please go back and check the file from the link."
             )
+
