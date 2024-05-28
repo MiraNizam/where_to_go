@@ -31,7 +31,7 @@ def index(request):
 
 def place_details(request, place_id):
     place = get_object_or_404(Place, pk=place_id)
-    place_descriptions = {
+    place_description = {
         "title": place.title,
         "imgs": [image.image.url for image in place.images.all()],
         "description_short": place.short_description,
@@ -39,5 +39,5 @@ def place_details(request, place_id):
         "coordinates": {"lng": place.longitude, "lat": place.latitude},
     }
     return JsonResponse(
-        place_descriptions, json_dumps_params={"ensure_ascii": False, "indent": 2}
+        place_description, json_dumps_params={"ensure_ascii": False, "indent": 2}
     )
