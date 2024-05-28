@@ -17,7 +17,7 @@ class ImageInline(SortableTabularInline):
 
     def get_preview(self, obj):
         return format_html(
-            '<img src="{url}" style = "max-height: 200px;"/>', url=obj.image.url
+            '<img src="{url}" style = "max-height: 200px; max-width: 400px"/>', url=obj.image.url
         )
 
     get_preview.short_description = "Превью"
