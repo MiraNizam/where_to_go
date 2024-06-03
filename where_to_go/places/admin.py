@@ -29,7 +29,6 @@ class ImageInline(SortableTabularInline):
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
     raw_id_fields = ("place",)
-    pass
 
 
 @admin.register(Place)
