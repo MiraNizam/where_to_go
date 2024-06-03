@@ -29,7 +29,12 @@ class Command(BaseCommand):
                 description_long=place_description["description_long"],
                 longitude=place_description["coordinates"]["lng"],
                 latitude=place_description["coordinates"]["lat"],
-                defaults={"title": place_description["title"]}
+                defaults={
+                    "description_short": place_description["description_short"],
+                    "description_long":place_description["description_long"],
+                    "longitude":place_description["coordinates"]["lng"],
+                    "latitude":place_description["coordinates"]["lat"]
+                }
             )
 
             if created:
