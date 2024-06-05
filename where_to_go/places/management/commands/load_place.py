@@ -25,15 +25,11 @@ class Command(BaseCommand):
         try:
             place, created = Place.objects.get_or_create(
                 title=place_description["title"],
-                description_short=place_description["description_short"],
-                description_long=place_description["description_long"],
-                longitude=place_description["coordinates"]["lng"],
-                latitude=place_description["coordinates"]["lat"],
                 defaults={
-                    "description_short": place_description["description_short"],
-                    "description_long":place_description["description_long"],
-                    "longitude":place_description["coordinates"]["lng"],
-                    "latitude":place_description["coordinates"]["lat"]
+                    "short_description": place_description["description_short"],
+                    "long_description": place_description["description_long"],
+                    "longitude": place_description["coordinates"]["lng"],
+                    "latitude": place_description["coordinates"]["lat"]
                 }
             )
 
