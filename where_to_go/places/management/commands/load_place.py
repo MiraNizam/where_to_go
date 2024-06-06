@@ -48,4 +48,3 @@ class Command(BaseCommand):
                 "The file was not found or the file structure does not match what is stated in the README, "
                 "please go back and check the file from the link."
             )
-

@@ -1,6 +1,5 @@
 from adminsortable2.admin import (
     SortableAdminBase,
-    SortableAdminMixin,
     SortableTabularInline,
 )
 from django.contrib import admin
